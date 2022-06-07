@@ -1,4 +1,31 @@
 """
+2. How to return values from functions
+"""
+
+import Cocoa
+
+let root = sqrt(169)
+print(root)
+
+func rollDice() -> Int {
+    Int.random(in: 1...6)
+}
+
+let result = rollDice()
+print(result)
+
+func areLettersIdentical(firstString: String, secondString: String) -> Bool {
+    firstString.sorted() == secondString.sorted()
+}
+
+func pythagoras(a: Double, b: Double) -> Double {
+    sqrt(a * a + b * b)
+}
+
+let c = pythagoras(a: 3, b: 4)
+print(c)
+
+"""
 1. How to reuse code with functions
 """
 
