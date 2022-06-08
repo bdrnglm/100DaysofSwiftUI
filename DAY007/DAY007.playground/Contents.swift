@@ -128,8 +128,8 @@ func rollDice() -> Int {
     Int.random(in: 1...6)
 }
 
-let result = rollDice()
-print(result)
+//let result = rollDice()
+//print(result)
 
 func areLettersIdentical(firstString: String, secondString: String) -> Bool {
     firstString.sorted() == secondString.sorted()
