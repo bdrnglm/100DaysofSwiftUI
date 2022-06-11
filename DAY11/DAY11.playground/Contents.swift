@@ -1,4 +1,48 @@
 """
+Checkpoint 6
+
+To check your knowledge, here’s a small task for you: create a struct to store information about a car, including its model, number of seats, and current gear, then add a method to change gears up or down. Have a think about variables and access control: what data should be a variable rather than a constant, and what data should be exposed publicly? Should the gear-changing method validate its input somehow?
+"""
+
+enum gearChange { case up, down }
+
+struct Car {
+    let model: String = "Tay Swa"
+    let seats: Int = 5
+    private(set) var gear: Int = 1
+        
+    mutating func changeGear(gear: gearChange) {
+        if gear == .up {
+            if self.gear < 6 {
+                self.gear += 1
+                print("Geared up to \(self.gear)!")
+            } else {
+                print("Can't go any higher!")
+            }
+        } else {
+            if self.gear > 1 {
+                self.gear -= 1
+                print("Geared down to \(self.gear)")
+            } else {
+                print("You can't go any lower!")
+            }
+        }
+    }
+}
+
+var merco = Car()
+merco.changeGear(gear: .up)
+merco.changeGear(gear: .up)
+merco.changeGear(gear: .up)
+merco.changeGear(gear: .up)
+merco.changeGear(gear: .down)
+merco.changeGear(gear: .up)
+merco.changeGear(gear: .down)
+merco.changeGear(gear: .down)
+merco.changeGear(gear: .up)
+merco.changeGear(gear: .up)
+
+"""
 2. Static properties and methods
 """
 
