@@ -1,24 +1,53 @@
 """
-4. How to copy classes
+5. How to create a deinitializer for a class
 """
 
 class User {
-    var username = "Anonymous"
+    let id: Int
     
-    func copy() -> User {
-        let user = User()
-        user.username = username
-        return user
+    init(id: Int) {
+        self.id = id
+        print("User \(id): I'm alive!")
+    }
+    
+    deinit {
+        print("User \(id): I'm dead!")
     }
 }
 
-var user1 = User()
-var user2 = user1.copy()
+var users = [User]()
 
-user2.username = "Taylor"
+for i in 1...3 {
+    let user = User(id: i)
+    print("User \(user.id): I'm in control!")
+    users.append(user)
+}
 
-print(user1.username)
-print(user2.username)
+print("Loop is finished!")
+users.removeAll()
+print("Array is clear!")
+
+"""
+4. How to copy classes
+"""
+
+//class User {
+//    var username = "Anonymous"
+//
+//    func copy() -> User {
+//        let user = User()
+//        user.username = username
+//        return user
+//    }
+//}
+//
+//var user1 = User()
+//var user2 = user1.copy()
+//
+//user2.username = "Taylor"
+//
+//print(user1.username)
+//print(user2.username)
 
 """
 3. How to add initializers for classes
