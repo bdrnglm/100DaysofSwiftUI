@@ -1,4 +1,17 @@
 """
+6. How to work with variables inside classes
+"""
+
+class User {
+    var name = "Paul"
+}
+
+var user = User()
+user.name = "Taylor"
+user = User()
+print(user.name)
+
+"""
 5. How to create a deinitializer for a class
 """
 
