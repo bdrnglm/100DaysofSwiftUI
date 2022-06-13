@@ -1,4 +1,18 @@
 """
+2. How to use opaque return types
+"""
+
+func getRandomNumber() -> some Equatable {
+    Int.random(in: 1...6)
+}
+
+func getRandomBool() -> some Equatable {
+    Bool.random()
+}
+
+print(getRandomNumber() == getRandomNumber())
+
+"""
 1. How to create and use protocols
 """
 
