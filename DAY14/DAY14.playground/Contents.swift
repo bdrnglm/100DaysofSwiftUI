@@ -1,4 +1,19 @@
 """
+2. How to unwrap optionals with guard
+"""
+
+func printSquare(of number: Int?) {
+    guard let number = number else {
+        print("Missing input")
+        return
+    }
+
+    print("\(number) x \(number) is \(number * number)")
+}
+
+//guard someArray.isEmpty else { return }
+
+"""
 1. How to handle missing data with optionals
 """
 
