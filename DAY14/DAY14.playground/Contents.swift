@@ -1,4 +1,18 @@
 """
+Checkpoint 9
+
+Your challenge is this: write a function that accepts an optional array of integers, and returns one randomly. If the array is missing or empty, return a random number in the range 1 through 100.
+
+If that sounds easy, it’s because I haven’t explained the catch yet: I want you to write your function in a single line of code. No, that doesn’t mean you should just write lots of code then remove all the line breaks – you should be able to write this whole thing in one line of code.
+"""
+
+func randomPicker(list: [Int]?) -> Int {
+    return list?.randomElement() ?? (0...100).randomElement()!
+}
+
+randomPicker(list: [])
+
+"""
 5. How to handle function failure with optionals
 """
 
@@ -52,14 +66,14 @@ let new = captains["Serenity", default: "N/A"]
 let tvShows = ["Archer", "Babylon 5", "Ted Lasso"]
 let favorite = tvShows.randomElement() ?? "None"
 
-struct Book {
-    let title: String
-    let author: String?
-}
-
-let book = Book(title: "Beowulf", author: nil)
-let author = book.author ?? "Anonymous"
-print(author)
+//struct Book {
+//    let title: String
+//    let author: String?
+//}
+//
+//let book = Book(title: "Beowulf", author: nil)
+//let author = book.author ?? "Anonymous"
+//print(author)
 
 let input = ""
 let number = Int(input) ?? 0
@@ -107,12 +121,12 @@ func square(number: Int) -> Int {
     number * number
 }
 
-var number: Int? = nil
-
-if let unwrappedNumber = number {
-    print(square(number: unwrappedNumber))
-}
-
-if let number = number {
-    print(square(number: number))
-}
+//var number: Int? = nil
+//
+//if let unwrappedNumber = number {
+//    print(square(number: unwrappedNumber))
+//}
+//
+//if let number = number {
+//    print(square(number: number))
+//}
