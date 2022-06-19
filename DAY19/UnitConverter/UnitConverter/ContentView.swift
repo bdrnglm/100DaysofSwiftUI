@@ -10,75 +10,84 @@ import SwiftUI
 struct ContentView: View {
     @FocusState private var degreeIsFocused: Bool
     
+    let temperatureUnits = ["C", "F", "K"]
+
+    @State private var temperatureUnit = "C"
     @State private var temperature = 0.0
-    @State private var temperatureUnit = "°C"
     
-    let temperatureUnits = ["°C", "°F", "°K"]
+    var celcius: Double {
+        switch temperatureUnit {
+        case "F":
+            return (temperature - 32) * 5 / 9
+        case "K":
+            return temperature - 273.15
+        default:
+            return temperature
+        }
+    }
+
+    var farhenheit: Double {
+        switch temperatureUnit {
+        case "C":
+            return (temperature * 9 / 5) + 32
+        case "K":
+            return (temperature - 32) * 5 / 9 + 273.15
+        default:
+            return temperature
+        }
+    }
     
+    var kelvin: Double {
+        switch temperatureUnit {
+        case "C":
+            return temperature + 273.15
+        case "F":
+            return (temperature - 273.15) * 9 / 5 + 32
+        default:
+            return temperature
+        }
+    }
+        
     var body: some View {
         NavigationView {
             Form {
                 Group {
                     Section {
-                        Picker("Temperatures Units", selection: $temperatureUnit){
+                        TextField("\(temperatureUnit)", value: $temperature, format: .number)
+                            .keyboardType(.decimalPad)
+                            .focused($degreeIsFocused)
+                        
+                    } header: {
+                        Text("Temperature to convert")
+                    }
+                    
+                    Section {
+                        Picker("Temperature Units", selection: $temperatureUnit){
                             ForEach(temperatureUnits, id: \.self) {
-                                Text($0)
+                                Text("°\($0)")
                             }
                         }
                         .pickerStyle(.segmented)
 
                     } header: {
-                        Text("Temperatures Units")
+                        Text("Temperature Units")
                     }
 
-                    Section {
-                        TextField("Temperature to convert", value: $temperature, format: .number)
-                            .keyboardType(.decimalPad)
-                            .focused($degreeIsFocused)
-                        
-                    } header: {
-                        Text("Degree \(temperatureUnit) to convert")
-                    }
-                    
                     Group {
                         Section {
-                            if temperatureUnit == "°F" {
-                                let convertedTemperature = (temperature - 32) * 5 / 9
-                                Text("\(String(format: "%g", convertedTemperature))°C")
-                            } else if temperatureUnit == "°K" {
-                                let convertedTemperature = temperature - 273.15
-                                Text("\(String(format: "%g", convertedTemperature))°C")
-                            } else {
-                                Text("\(String(format: "%g", temperature))°C")
-                            }
+                            Text("\(String(format: "%g", celcius))°C")
                         } header: {
                             Text("Celcius")
                         }
 
                         Section {
-                            if temperatureUnit == "°C" {
-                                let convertedTemperature = (temperature * 9 / 5) + 32
-                                Text("\(String(format: "%g", convertedTemperature))°F")
-                            } else if temperatureUnit == "°K" {
-                                let convertedTemperature = (temperature - 32) * 5 / 9 + 273.15
-                                Text("\(String(format: "%g", convertedTemperature))°F")
-                            } else {
-                                Text("\(String(format: "%g", temperature))°F")
-                            }
+                            Text("\(String(format: "%g", farhenheit))°F")
                         } header: {
                             Text("Farhenheit")
                         }
 
                         Section {
-                            if temperatureUnit == "°C" {
-                                let convertedTemperature = temperature + 273.15
-                                Text("\(String(format: "%g", convertedTemperature))°K")
-                            } else if temperatureUnit == "°F" {
-                                let convertedTemperature = (temperature - 273.15) * 9 / 5 + 32
-                                Text("\(String(format: "%g", convertedTemperature))°K")
-                            } else {
-                                Text("\(String(format: "%g", temperature))°K")
-                            }
+                            Text("\(String(format: "%g", kelvin))°K")
                         } header: {
                             Text("Kelvin")
                         }
