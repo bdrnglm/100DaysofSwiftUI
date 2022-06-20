@@ -9,23 +9,51 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+
+        Button {
+            print("Edit button was tapped")
+        } label: {
+            Label("Edit", systemImage: "pencil")
+//            Image(systemName: "pencil")
+        }
         
-        AngularGradient(gradient: Gradient(colors: [.red, .yellow, .green, .blue, .purple, .red]), center: .center)
+//        Button {
+//            print("Button was tapped")
+//        } label: {
+//            Text("Tap me!")
+//                .padding()
+//                .foregroundColor(.white)
+//                .background(.red)
+//        }
         
-//        RadialGradient(gradient: Gradient(colors: [.blue, .black]), center: .center, startRadius: 20, endRadius: 200)
+//        VStack {
+//            Button("Button 1") { }
+//                .buttonStyle(.bordered)
+//            Button("Button 2", role: .destructive) { }
+//                .buttonStyle(.bordered)
+//            Button("Button 3") { }
+//                .buttonStyle(.borderedProminent)
+//                .tint(.mint)
+////            Button("Button 3") { }
+////                .buttonStyle(.borderedProminent)
+//            Button("Button 4", role: .destructive) { }
+//                .buttonStyle(.borderedProminent)
+//        }
         
-//        LinearGradient(gradient: Gradient(stops: [
-//                .init(color: .white, location: 0.45),
-//                .init(color: .black, location: 0.55),
-//            ]), startPoint: .top, endPoint: .bottom)
+//        Button("Delete selection", role: .destructive, action: executeDelete)
         
-//        LinearGradient(gradient: Gradient(stops: [
-//                Gradient.Stop(color: .white, location: 0.45),
-//                Gradient.Stop(color: .black, location: 0.55),
-//            ]), startPoint: .top, endPoint: .bottom)
+//        Button("Delete selection", action: executeDelete)
+
+//        Button("Delete selection") {
+//            print("Now deleting…")
+//        }
         
-//        LinearGradient(gradient: Gradient(colors: [.white, .black]), startPoint: .top, endPoint: .bottom)
     }
+
+    func executeDelete() {
+        print("Now deleting…")
+    }
+
 }
 
 struct ContentView_Previews: PreviewProvider {
