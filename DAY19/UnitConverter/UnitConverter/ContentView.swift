@@ -47,7 +47,16 @@ struct ContentView: View {
             return temperature
         }
     }
-        
+    
+    struct Unit: Identifiable {
+        let id = UUID()
+        let name: String
+        var symbol: String {
+            String(name.first!)
+        }
+        let value: Double
+    }
+   
     var body: some View {
         NavigationView {
             Form {
@@ -74,22 +83,18 @@ struct ContentView: View {
                     }
 
                     Group {
-                        Section {
-                            Text("\(String(format: "%g", celcius))°C")
-                        } header: {
-                            Text("Celcius")
-                        }
-
-                        Section {
-                            Text("\(String(format: "%g", farhenheit))°F")
-                        } header: {
-                            Text("Farhenheit")
-                        }
-
-                        Section {
-                            Text("\(String(format: "%g", kelvin))°K")
-                        } header: {
-                            Text("Kelvin")
+                        let units = [
+                            Unit(name: "Celcius", value: celcius),
+                            Unit(name: "Farhenheit", value: farhenheit),
+                            Unit(name: "Kelvin", value: kelvin)
+                        ]
+                        
+                        ForEach(units) { unit in
+                            Section {
+                                Text("\(String(format: "%g", unit.value))°\(unit.symbol)")
+                            } header: {
+                                Text(unit.name)
+                            }
                         }
                     }
                 }
