@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var useRedText = false
-    
     var body: some View {
-        Button("Hello world!") {
-            useRedText.toggle()
+        VStack {
+            Text("Gryffindor")
+                .font(.largeTitle)
+            Text("Hufflepuff")
+            Text("Ravenclaw")
+            Text("Slytherin")
         }
-        .foregroundStyle(useRedText ? .red : .green)
+        .font(.title)
     }
 }
 
