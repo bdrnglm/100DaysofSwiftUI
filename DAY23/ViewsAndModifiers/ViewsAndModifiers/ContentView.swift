@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    var motto1: some View {
+        Text("Draco dormiens")
+    }
+    
+    let motto2 = Text("nunquam titillandus")
+    
+    @ViewBuilder var spells: some View {
+        Text("Lumos")
+        Text("Obliviate")
+    }
+    
     var body: some View {
-        VStack {
-            Text("Gryffindor")
-                .font(.largeTitle)
-            Text("Hufflepuff")
-            Text("Ravenclaw")
-            Text("Slytherin")
+        Group {
+            spells
         }
-        .font(.title)
     }
 }
 
