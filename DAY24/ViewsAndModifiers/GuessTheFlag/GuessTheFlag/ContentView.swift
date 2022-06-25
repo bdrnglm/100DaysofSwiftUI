@@ -7,6 +7,17 @@
 
 import SwiftUI
 
+struct FlagImage: View {
+    var country: String
+    
+    var body: some View {
+        Image(country)
+            .renderingMode(.original)
+            .clipShape(RoundedRectangle(cornerRadius: 5))
+            .shadow(radius: 10)
+    }
+}
+
 struct ContentView: View {
     @State private var showingScore = false
     @State private var scoreTitle = ""
@@ -51,10 +62,11 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .renderingMode(.original)
-                                .clipShape(RoundedRectangle(cornerRadius: 5))
-                                .shadow(radius: 10)
+                            FlagImage(country: countries[number])
+//                            Image(countries[number])
+//                                .renderingMode(.original)
+//                                .clipShape(RoundedRectangle(cornerRadius: 5))
+//                                .shadow(radius: 10)
                         }
                     }
                 }
@@ -83,7 +95,7 @@ struct ContentView: View {
                 Text("That's the flag of \(countries[tappedFlag])")
             }
         }
-        .alert("Game Over!", isPresented: $showingReset) {
+        .alert("Game Over", isPresented: $showingReset) {
             Button("Restart", action: reset)
         } message: {
             Text("Your final score is \(score)")
