@@ -8,21 +8,30 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var wakeUp = Date.now
-
-    var body: some View {
-        DatePicker("Please enter a date", selection: $wakeUp, in: Date.now...)
-//        DatePicker("Please enter a date", selection: $wakeUp, displayedComponents: .hourAndMinute)
-//            .labelsHidden()
-    }
     
-//    func exampleDates() {
-//        // create a second Date instance set to one day in seconds from now
+    var body: some View {
+        Text(Date.now.formatted(date: .long, time: .omitted))
+//        Text(Date.now.formatted(date: .long, time: .shortened))
+//        Text(Date.now, format: .dateTime.hour().minute().second().day().month().year())
+//        Text(Date.now, format: .dateTime.hour().minute())
+    }
+
+    
+    
+    func trivialExemple() {
+        let components = Calendar.current.dateComponents([.hour, .minute], from: Date.now)
+        let hour = components.hour ?? 0
+        let minute = components.minute ?? 0
+        
+//        var components = DateComponents()
+//        components.hour = 8
+//        components.minute = 0
+//        let date = Calendar.current.date(from: components) ?? Date.now
+
+//        let now = Date.now
 //        let tomorrow = Date.now.addingTimeInterval(86400)
-//
-//        // create a range from those two
-//        let range = Date.now...tomorrow
-//    }
+//        let range = now...tomorrow
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
