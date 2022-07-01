@@ -47,7 +47,14 @@ struct ContentView: View {
     func addNewWord() {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
 
-        guard answer.count > 0 else {
+        guard answer != rootWord else {
+            wordError(title: "Word same as given word", message: "Come on, don't try to 🧠 this game...")
+            newWord = ""
+            return
+        }
+
+        guard answer.count >= 3 else {
+            wordError(title: "Word too short", message: "Words need to be at least 3 characters long!")
             newWord = ""
             return
         }
