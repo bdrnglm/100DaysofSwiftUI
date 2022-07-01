@@ -16,6 +16,8 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
     
+    @State private var score = 0
+    
     var body: some View {
         NavigationView {
             List {
@@ -31,6 +33,10 @@ struct ContentView: View {
                             Image(systemName: "\(word.count).circle")
                             Text(word)
                         }
+                    }
+                } header: {
+                    HStack {
+                        Text("Score: \(score)")
                     }
                 }
             }
@@ -83,7 +89,8 @@ struct ContentView: View {
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
-        
+
+        score += answer.count + 10
         newWord = ""
     }
     
