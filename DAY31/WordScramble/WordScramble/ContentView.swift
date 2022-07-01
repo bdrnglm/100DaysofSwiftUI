@@ -48,7 +48,7 @@ struct ContentView: View {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard answer != rootWord else {
-            wordError(title: "Word same as given word", message: "Come on, don't try to 🧠 this game...")
+            wordError(title: "Word same as start word", message: "Come on, don't try to 🧠 this game...")
             newWord = ""
             return
         }
