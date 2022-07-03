@@ -8,22 +8,49 @@
 import SwiftUI
 
 struct ContentView: View {
+    let letters = Array("Hello SwiftUI")
     @State private var enabled = false
-    
+    @State private var dragAmount = CGSize.zero
+
     var body: some View {
-        Button("Tap Me") {
-            enabled.toggle()
+        HStack(spacing: 0) {
+            ForEach(0..<letters.count, id: \.self) { num in
+                Text(String(letters[num]))
+                    .padding(5)
+                    .font(.title)
+                    .background(enabled ? .cyan : .purple)
+                    .offset(dragAmount)
+                    .animation(.default.delay(Double(num) / 20), value: dragAmount)
+            }
         }
-        .frame(width: 200, height: 200)
-        .background(enabled ? .blue : .red)
-        .animation(nil, value: enabled)
-//        .animation(.default, value: enabled)
-//        .frame(width: 200, height: 200)
-        .foregroundColor(.white)
-        .clipShape(RoundedRectangle(cornerRadius: enabled ? 60 : 0))
-//        .clipShape(RoundedRectangle(cornerRadius: enabled ? 60 : 0))
-        .animation(.interpolatingSpring(stiffness: 10, damping: 1), value: enabled)
+        .gesture(
+            DragGesture()
+                .onChanged { dragAmount = $0.translation }
+                .onEnded { _ in
+                    dragAmount = .zero
+                    enabled.toggle()
+                }
+        )
     }
+
+//    @State private var dragAmount = CGSize.zero
+//
+//    var body: some View {
+//        LinearGradient(gradient: Gradient(colors: [.cyan, .purple]), startPoint: .topLeading, endPoint: .bottomTrailing)
+//            .frame(width: 300, height: 200)
+//            .clipShape(RoundedRectangle(cornerRadius: 10))
+//            .offset(dragAmount)
+//            .gesture(
+//                DragGesture()
+//                    .onChanged { dragAmount = $0.translation }
+//                    .onEnded { _ in
+//                        withAnimation(.spring()) {
+//                            dragAmount = .zero
+//                        }
+//                    }
+//            )
+//            .animation(.spring(), value: dragAmount)
+//    }
 }
 
 struct ContentView_Previews: PreviewProvider {
