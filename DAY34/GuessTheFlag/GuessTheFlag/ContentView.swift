@@ -24,7 +24,7 @@ struct ContentView: View {
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
-    @State private var tappedFlag = 0
+    @State private var tappedFlag = -1
     
     @State private var score = 0
     
@@ -33,6 +33,7 @@ struct ContentView: View {
 
     @State private var animationAmount = 0.0
     @State private var opacityAmount = 1.0
+    @State private var scaleAmount = 1.0
 
     var body: some View {
         ZStack {
@@ -65,9 +66,10 @@ struct ContentView: View {
                         } label: {
                             FlagImage(country: countries[number])
                         }
-                        .rotation3DEffect(.degrees(tappedFlag == number ? animationAmount : 0), axis: (x: 0, y: 1, z: 0))
-                        .opacity(tappedFlag == number ? 1.0 : opacityAmount)
-//                        .animation(.default.delay(3.0))
+//                        .rotation3DEffect(.degrees(tappedFlag == number ? animationAmount : animationAmount * -1), axis: (x: 0, y: 1, z: 0))
+//                        .opacity(tappedFlag == number ? 1.0 : opacityAmount)
+//                        .scaleEffect(0.25)
+                        .scaleEffect(tappedFlag == number ?  1.0 : scaleAmount)
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -92,7 +94,9 @@ struct ContentView: View {
             if scoreTitle == "Correct" {
                 Text("You guessed the correct flag")
             } else {
-                Text("That's the flag of \(countries[tappedFlag])")
+                let country = tappedFlag != -1 ? countries[tappedFlag] : "None"
+                Text("That's the flag of \(country)")
+//                Text("That's the flag of \(countries[tappedFlag])")
             }
         }
         .alert("Game Over", isPresented: $showingReset) {
@@ -107,6 +111,7 @@ struct ContentView: View {
         withAnimation {
             animationAmount += 360
             opacityAmount = 0.25
+            scaleAmount = 0.25
         }
         if number == correctAnswer {
             scoreTitle = "Correct"
@@ -128,7 +133,9 @@ struct ContentView: View {
         withAnimation {
             animationAmount = 0
             opacityAmount = 1.0
+            scaleAmount = 1.0
         }
+        tappedFlag = -1
     }
     
     func reset() {
