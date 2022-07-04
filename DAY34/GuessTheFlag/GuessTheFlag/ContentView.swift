@@ -31,13 +31,14 @@ struct ContentView: View {
     @State private var showingReset = false
     @State private var round = 0
 
+    @State private var animationAmount = 0.0
+    
     var body: some View {
         ZStack {
             RadialGradient(stops: [
                 .init(color: .orange, location: 0.3),
                 .init(color: .purple, location: 0.3)
             ], center: .top, startRadius: 200, endRadius: 700)
-//            LinearGradient(gradient: Gradient(colors: [.cyan, .purple]), startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             VStack {
@@ -48,7 +49,6 @@ struct ContentView: View {
                     .foregroundColor(.white)
                 
                 VStack(spacing: 15) {
-    //            VStack(spacing: 30) {
                     VStack {
                         Text("Tap the flag of")
                             .foregroundStyle(.secondary)
@@ -63,11 +63,8 @@ struct ContentView: View {
                             flagTapped(number)
                         } label: {
                             FlagImage(country: countries[number])
-//                            Image(countries[number])
-//                                .renderingMode(.original)
-//                                .clipShape(RoundedRectangle(cornerRadius: 5))
-//                                .shadow(radius: 10)
                         }
+                        .rotation3DEffect(.degrees(tappedFlag == number ? animationAmount : 0), axis: (x: 0, y: 1, z: 0))
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -104,6 +101,9 @@ struct ContentView: View {
     
     func flagTapped(_ number: Int) {
         tappedFlag = number
+        withAnimation {
+            animationAmount += 360
+        }
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
@@ -111,7 +111,7 @@ struct ContentView: View {
             scoreTitle = "Wrong"
             score = score > 0 ? score - 1 : 0
         }
-        showingScore = true
+        askQuestion()
         round += 1
     }
     
