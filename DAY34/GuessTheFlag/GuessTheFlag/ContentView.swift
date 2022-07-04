@@ -66,9 +66,8 @@ struct ContentView: View {
                         } label: {
                             FlagImage(country: countries[number])
                         }
-//                        .rotation3DEffect(.degrees(tappedFlag == number ? animationAmount : animationAmount * -1), axis: (x: 0, y: 1, z: 0))
-//                        .opacity(tappedFlag == number ? 1.0 : opacityAmount)
-//                        .scaleEffect(0.25)
+                        .rotation3DEffect(.degrees(tappedFlag == number ? animationAmount : animationAmount * -1), axis: (x: 0, y: 1, z: 0))
+                        .opacity(tappedFlag == number ? 1.0 : opacityAmount)
                         .scaleEffect(tappedFlag == number ?  1.0 : scaleAmount)
                     }
                 }
