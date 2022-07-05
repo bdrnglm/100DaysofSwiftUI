@@ -9,19 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var table = 2
+    
+    let questionAmounts = [5, 10, 20]
+    @State private var questionAmount = 0
 
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    Picker("Table #\(table)", selection: $table) {
+                    Picker("Multiplication tables", selection: $table) {
                         ForEach(2...12, id: \.self) {
                             Text("\($0)")
                         }
                     }
                     .pickerStyle(.segmented)
                 } header: {
-                    Text("What multiplication table to practice?")
+                    Text("Multiplication tables to practice")
+                }
+                
+                Section {
+                    Picker("Number of questions", selection: $questionAmount) {
+                        ForEach(questionAmounts, id: \.self) {
+                            Text("\($0)")
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                } header: {
+                    Text("Number of questions to be asked")
                 }
             }
             .navigationTitle("Edutainment")
