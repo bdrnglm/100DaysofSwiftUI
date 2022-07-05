@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var table = 2
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            Form {
+                Section {
+                    Picker("Table #\(table)", selection: $table) {
+                        ForEach(2...12, id: \.self) {
+                            Text("\($0)")
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                } header: {
+                    Text("What multiplication table to practice?")
+                }
+            }
+            .navigationTitle("Edutainment")
+        }
     }
 }
 
