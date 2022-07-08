@@ -7,6 +7,31 @@
 
 import SwiftUI
 
+struct ColorPicker: ViewModifier {
+    let value: Double
+    
+    func body(content: Content) -> some View {
+        var color: Color {
+            if value >= 100 {
+                return Color.red
+            } else if value >= 10 {
+                return Color.orange
+            } else {
+                return Color.green
+            }
+        }
+        
+        return content
+            .foregroundColor(color)
+    }
+}
+
+extension View {
+    func amountColor(amount: Double) -> some View {
+        modifier(ColorPicker(value: amount))
+    }
+}
+
 struct ContentView: View {
     @StateObject var expenses = Expenses()
     
@@ -26,6 +51,7 @@ struct ContentView: View {
                         Spacer()
                         
                         Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                            .amountColor(amount: item.amount)
                     }
                 }
                 .onDelete(perform: removeItems)
