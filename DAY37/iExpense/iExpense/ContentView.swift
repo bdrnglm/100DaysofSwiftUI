@@ -16,7 +16,17 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(expenses.items) { item in
-                    Text(item.name)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(item.name)
+                                .font(.headline)
+                            Text(item.type)
+                        }
+                        
+                        Spacer()
+                        
+                        Text(item.amount, format: .currency(code: "TND"))
+                    }
                 }
                 .onDelete(perform: removeItems)
             }
@@ -24,8 +34,6 @@ struct ContentView: View {
             .toolbar {
                 Button {
                     showingAddExpense = true
-//                    let expense = ExpenseItem(name: "Test", type: "Personal", amount: 5)
-//                    expenses.items.append(expense)
                 } label: {
                     Image(systemName: "plus")
                 }
