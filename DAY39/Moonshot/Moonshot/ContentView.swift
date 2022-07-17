@@ -9,9 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
-    }
+        GeometryReader { geo in
+            Image("Example")
+                .resizable()
+                .scaledToFill()
+    //            .scaledToFit()
+                .frame(width: geo.size.width * 0.8)
+                .frame(width: geo.size.width, height: geo.size.height)
+//                .frame(width: 300, height: 300)
+    //            .clipped()
+        }
+        }
 }
 
 struct ContentView_Previews: PreviewProvider {
