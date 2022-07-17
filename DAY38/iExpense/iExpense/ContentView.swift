@@ -40,21 +40,45 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(expenses.items) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-                            Text(item.type)
+                    Section {
+                        ForEach(expenses.items) { item in
+                            if item.type == "Business" {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(item.name)
+                                    }
+            
+                                    Spacer()
+            
+                                    Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                                        .amountColor(amount: item.amount)
+                                }
+                            }
                         }
-                        
-                        Spacer()
-                        
-                        Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
-                            .amountColor(amount: item.amount)
+                        .onDelete(perform: removeItems)
+                    } header: {
+                        Text("Business")
                     }
-                }
-                .onDelete(perform: removeItems)
+
+                    Section {
+                        ForEach(expenses.items) { item in
+                            if item.type == "Personal" {
+                                HStack {
+                                    VStack(alignment: .leading) {
+                                        Text(item.name)
+                                    }
+            
+                                    Spacer()
+            
+                                    Text(item.amount, format: .currency(code: Locale.current.currencyCode ?? "USD"))
+                                        .amountColor(amount: item.amount)
+                                }
+                            }
+                        }
+                        .onDelete(perform: removeItems)
+                    } header: {
+                        Text("Personal")
+                    }
             }
             .navigationTitle("iExpenses")
             .toolbar {
