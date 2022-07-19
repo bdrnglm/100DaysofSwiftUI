@@ -16,21 +16,29 @@ struct ContentView: View {
     let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
     let missions: [Mission] = Bundle.main.decode("missions.json")
 
-    let showingGrid = false
+    @State private var showingGrid = false
     
     var body: some View {
         NavigationView {
             Group {
                 if showingGrid {
-                    GridLayout(missions: missions, astronauts: astronauts)
+                    withAnimation {
+                        GridLayout(missions: missions, astronauts: astronauts)
+                    }
                 } else {
-                    ListLayout(missions: missions, astronauts: astronauts)
+                    withAnimation {
+                        ListLayout(missions: missions, astronauts: astronauts)
+                    }
                 }
             }
             .navigationTitle("Moonshot")
             .background(.darkBackground)
             .preferredColorScheme(.dark)
-            
+            .toolbar {
+                Button("Toggle Layout") {
+                    showingGrid.toggle()
+                }
+            }
         }
     }
 }
