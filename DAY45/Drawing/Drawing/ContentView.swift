@@ -9,8 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
-            .padding()
+        ZStack {
+            Image("Patrick")
+
+            Rectangle()
+                .fill(.red)
+                .blendMode(.multiply)
+        }
+        .frame(width: 400, height: 500)
+        .clipped()
     }
 }
 
