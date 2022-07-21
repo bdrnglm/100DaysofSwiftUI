@@ -11,10 +11,11 @@ struct ContentView: View {
     var body: some View {
         ZStack {
             Image("Patrick")
+                .colorMultiply(.red)
 
-            Rectangle()
-                .fill(.red)
-                .blendMode(.multiply)
+//            Rectangle()
+//                .fill(.red)
+//                .blendMode(.multiply)
         }
         .frame(width: 400, height: 500)
         .clipped()
