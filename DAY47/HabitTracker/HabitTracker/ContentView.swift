@@ -8,9 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var habits = Habits()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            List {
+                ForEach(habits.items) { item in
+                    VStack(alignment: .leading) {
+                        Text(item.title)
+                            .font(.title2)
+                        
+                        Spacer()
+                        
+                        Text(item.description)
+                            .font(.caption)
+                    }
+                }
+            }
+            .navigationTitle("HabitTracker")
+        }
     }
 }
 
