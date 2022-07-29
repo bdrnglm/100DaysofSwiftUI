@@ -13,6 +13,7 @@
 		9FD12DEF289451CC00089947 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FD12DEE289451CC00089947 /* Preview Assets.xcassets */; };
 		9FD12DF62894558B00089947 /* Habits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD12DF52894558B00089947 /* Habits.swift */; };
 		9FD12DF8289457BC00089947 /* HabitItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD12DF7289457BC00089947 /* HabitItem.swift */; };
+		9FD12DFA28945CEF00089947 /* AddHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD12DF928945CEF00089947 /* AddHabitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		9FD12DEE289451CC00089947 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9FD12DF52894558B00089947 /* Habits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habits.swift; sourceTree = "<group>"; };
 		9FD12DF7289457BC00089947 /* HabitItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitItem.swift; sourceTree = "<group>"; };
+		9FD12DF928945CEF00089947 /* AddHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				9FD12DE7289451C600089947 /* HabitTrackerApp.swift */,
 				9FD12DE9289451C600089947 /* ContentView.swift */,
+				9FD12DF928945CEF00089947 /* AddHabitView.swift */,
 				9FD12DF52894558B00089947 /* Habits.swift */,
 				9FD12DF7289457BC00089947 /* HabitItem.swift */,
 				9FD12DEB289451CC00089947 /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 				9FD12DF8289457BC00089947 /* HabitItem.swift in Sources */,
 				9FD12DE8289451C600089947 /* HabitTrackerApp.swift in Sources */,
 				9FD12DF62894558B00089947 /* Habits.swift in Sources */,
+				9FD12DFA28945CEF00089947 /* AddHabitView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
