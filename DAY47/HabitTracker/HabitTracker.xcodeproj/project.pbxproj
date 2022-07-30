@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F6B963F289563D900CF2304 /* HabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6B963E289563D900CF2304 /* HabitView.swift */; };
 		9FD12DE8289451C600089947 /* HabitTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD12DE7289451C600089947 /* HabitTrackerApp.swift */; };
 		9FD12DEA289451C600089947 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD12DE9289451C600089947 /* ContentView.swift */; };
 		9FD12DEC289451CC00089947 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FD12DEB289451CC00089947 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F6B963E289563D900CF2304 /* HabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitView.swift; sourceTree = "<group>"; };
 		9FD12DE4289451C600089947 /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FD12DE7289451C600089947 /* HabitTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTrackerApp.swift; sourceTree = "<group>"; };
 		9FD12DE9289451C600089947 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 			children = (
 				9FD12DE7289451C600089947 /* HabitTrackerApp.swift */,
 				9FD12DE9289451C600089947 /* ContentView.swift */,
+				9F6B963E289563D900CF2304 /* HabitView.swift */,
 				9FD12DF928945CEF00089947 /* AddHabitView.swift */,
 				9FD12DF52894558B00089947 /* Habits.swift */,
 				9FD12DF7289457BC00089947 /* HabitItem.swift */,
@@ -149,6 +152,7 @@
 				9FD12DEA289451C600089947 /* ContentView.swift in Sources */,
 				9FD12DF8289457BC00089947 /* HabitItem.swift in Sources */,
 				9FD12DE8289451C600089947 /* HabitTrackerApp.swift in Sources */,
+				9F6B963F289563D900CF2304 /* HabitView.swift in Sources */,
 				9FD12DF62894558B00089947 /* Habits.swift in Sources */,
 				9FD12DFA28945CEF00089947 /* AddHabitView.swift in Sources */,
 			);

@@ -11,18 +11,23 @@ struct ContentView: View {
     @StateObject var habits = Habits()
     
     @State private var showingAddHabit = false
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(habits.items) { item in
-                    VStack(alignment: .leading) {
-                        Text(item.title)
-                            .font(.title2)
-                        
-                        Spacer()
-                        
-                        Text(item.description)
-                            .font(.caption)
+                    NavigationLink {
+                        HabitView(title: item.title, description: item.description)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(item.title)
+                                .font(.title2)
+                            
+                            Spacer()
+                            
+                            Text(item.description)
+                                .font(.caption)
+                        }
                     }
                 }
             }
