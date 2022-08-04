@@ -10,8 +10,13 @@ import SwiftUI
 struct CheckoutView: View {
     @ObservedObject var order: Order
     
+    @State private var confirmationTitle = ""
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
+    
+    enum CheckoutErrors: Error {
+        case networkError
+    }
     
     var body: some View {
         ScrollView {
@@ -38,7 +43,7 @@ struct CheckoutView: View {
         }
         .navigationTitle("Check out")
         .navigationBarTitleDisplayMode(.inline)
-        .alert("Thank you!", isPresented: $showingConfirmation) {
+        .alert(confirmationTitle, isPresented: $showingConfirmation) {
             Button("OK") { }
         } message: {
             Text(confirmationMessage)
@@ -57,10 +62,17 @@ struct CheckoutView: View {
         request.httpMethod = "POST"
         
         do {
-            let (data, _) = try await URLSession.shared.upload(for: request, from: encoded)
+            guard let (data, _) = try? await URLSession.shared.upload(for: request, from: encoded) else {
+                throw CheckoutErrors.networkError
+            }
             
             let decodedOrder = try JSONDecoder().decode(Order.self, from: data)
+            confirmationTitle = "Thank you!"
             confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
+            showingConfirmation = true
+        } catch CheckoutErrors.networkError {
+            confirmationTitle = "Error"
+            confirmationMessage = "Couldn't place the order because of a network issue."
             showingConfirmation = true
         } catch {
             print("Checkout failed.")
