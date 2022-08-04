@@ -12,8 +12,8 @@ class Habits: ObservableObject {
     
     init() {
         items = [
-            HabitItem(title: "Anfal", description: "Une femme venant de la ville de Biskra. Ville surnommée « la porte du désert » et fournit le monde entier en dattes"),
-            HabitItem(title: "Badran", description: "Ses initiales le résument trés bien: « B.G »"),
+            HabitItem(title: "Anfal", description: "Une femme venant de la ville de Biskra. Ville surnommée « la porte du désert » et fournit le monde entier en dattes."),
+            HabitItem(title: "Badran", description: "Ses initiales le résument très bien: « B.G »."),
             HabitItem(title: "Maryam", description: "9️⃣🤰🚫💥🥰")
         ]
     }
