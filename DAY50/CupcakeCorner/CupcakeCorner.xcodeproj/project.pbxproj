@@ -13,6 +13,7 @@
 		9FD6A8EE289BD96C00A778EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD6A8ED289BD96C00A778EC /* ContentView.swift */; };
 		9FD6A8F0289BD97300A778EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FD6A8EF289BD97300A778EC /* Assets.xcassets */; };
 		9FD6A8F3289BD97300A778EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FD6A8F2289BD97300A778EC /* Preview Assets.xcassets */; };
+		9FE97C0E289BFC32000A5AF1 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE97C0D289BFC32000A5AF1 /* CheckoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		9FD6A8ED289BD96C00A778EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9FD6A8EF289BD97300A778EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9FD6A8F2289BD97300A778EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9FE97C0D289BFC32000A5AF1 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				9FD6A8EB289BD96C00A778EC /* CupcakeCornerApp.swift */,
 				9FD6A8ED289BD96C00A778EC /* ContentView.swift */,
+				9FE97C0D289BFC32000A5AF1 /* CheckoutView.swift */,
 				9F624A3B289BF498004B18DF /* Order.swift */,
 				9F624A3D289BF755004B18DF /* AddressView.swift */,
 				9FD6A8EF289BD97300A778EC /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			files = (
 				9F624A3C289BF498004B18DF /* Order.swift in Sources */,
 				9F624A3E289BF755004B18DF /* AddressView.swift in Sources */,
+				9FE97C0E289BFC32000A5AF1 /* CheckoutView.swift in Sources */,
 				9FD6A8EE289BD96C00A778EC /* ContentView.swift in Sources */,
 				9FD6A8EC289BD96C00A778EC /* CupcakeCornerApp.swift in Sources */,
 			);
