@@ -17,19 +17,32 @@ struct DetailView: View {
     
     var body: some View {
         ScrollView {
-            ZStack(alignment: .bottomTrailing) {
+            ZStack(alignment: .bottom) {
                 Image(book.genre ?? "Fantasy")
                     .resizable()
                     .scaledToFit()
                 
-                Text(book.genre?.uppercased() ?? "FANTASY")
-                    .font(.caption)
-                    .fontWeight(.black)
-                    .padding(8)
-                    .foregroundColor(.white)
-                    .background(.black.opacity(0.75))
-                    .clipShape(Capsule())
-                    .offset(x: -5, y: -5)
+                HStack {
+                    Text("Saved on \(book.date?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
+                        .font(.caption)
+                        .fontWeight(.black)
+                        .padding(8)
+                        .foregroundColor(.white)
+                        .background(.black.opacity(0.75))
+                        .clipShape(Capsule())
+                        .offset(x: 5, y: -5)
+
+                    Spacer()
+                    
+                    Text(book.genre?.uppercased() ?? "FANTASY")
+                        .font(.caption)
+                        .fontWeight(.black)
+                        .padding(8)
+                        .foregroundColor(.white)
+                        .background(.black.opacity(0.75))
+                        .clipShape(Capsule())
+                        .offset(x: -5, y: -5)
+                }
             }
             
             Text(book.author ?? "Unknow author")
@@ -41,6 +54,8 @@ struct DetailView: View {
             
             RatingView(rating: .constant(Int(book.rating)))
                 .font(.largeTitle)
+            
+//            Text("Saved on \(book.date?.formatted(date: .abbreviated, time: .omitted) ?? "N/A")")
         }
         .navigationTitle(book.title ?? "Unknown Book")
         .navigationBarTitleDisplayMode(.inline)
