@@ -13,7 +13,7 @@ struct AddBookView: View {
     
     @State private var title = ""
     @State private var author = ""
-    @State private var rating = 3
+    @State private var rating = 0
     @State private var genre = ""
     @State private var review = ""
     
@@ -54,9 +54,19 @@ struct AddBookView: View {
                         dismiss()
                     }
                 }
+                .disabled(disableForm)
             }
             .navigationTitle("Add Book")
         }
+    }
+    
+    var disableForm: Bool {
+        if  title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty   ||
+            author.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty  ||
+            genre.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty   {
+            return true
+        }
+        return false
     }
 }
 
