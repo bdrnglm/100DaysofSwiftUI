@@ -62,7 +62,7 @@ struct DetailView: View {
     func deleteBook() {
         moc.delete(book)
         
-        try?.save()
+        try?moc.save()
         dismiss()
     }
 }
