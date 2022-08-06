@@ -24,7 +24,7 @@ struct FilteredList<T: NSManagedObject, Content: View>: View {
         case contains
     }
     
-    init(filterKey: String, filterValue: String, predicate: Predicate, @ViewBuilder content: @escaping (T) -> Content) {
+    init(filterKey: String, filterValue: String, predicate: Predicate, sortDescriptors: [SortDescriptor<T>], @ViewBuilder content: @escaping (T) -> Content) {
         var predicateString: String {
             switch predicate {
             case .beginsWith:
@@ -33,7 +33,7 @@ struct FilteredList<T: NSManagedObject, Content: View>: View {
                 return "CONTAINS"
             }
         }
-        _fetchRequests = FetchRequest<T>(sortDescriptors: [], predicate: NSPredicate(format: "%K \(predicateString) %@", filterKey, filterValue))
+        _fetchRequests = FetchRequest<T>(sortDescriptors: sortDescriptors, predicate: NSPredicate(format: "%K \(predicateString) %@", filterKey, filterValue))
         self.content = content
     }
 }
