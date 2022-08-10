@@ -14,6 +14,9 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(users, id: \.id) { user in
+                    let firstName = user.name.split(separator: " ")[0]
+                    let lastName = user.name.split(separator: " ")[1]
+
                     NavigationLink {
                         UserDetailView(user: user)
                     } label: {
@@ -21,13 +24,14 @@ struct ContentView: View {
                             UserView(isActive: user.isActive)
                             
                             VStack(alignment: .leading) {
-                                Text(user.name)
+                                Text(firstName)
                                     .foregroundColor(.primary)
                                     .font(.headline)
                                 
-                                Text(user.email)
+                                Text(lastName)
                                     .foregroundColor(.secondary)
                             }
+                            .padding(.leading)
                         }
                     }
                 }
