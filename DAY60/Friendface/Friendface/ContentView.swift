@@ -13,25 +13,29 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(users, id: \.id) { user in
-                    let firstName = user.name.split(separator: " ")[0]
-                    let lastName = user.name.split(separator: " ")[1]
+                if users.isEmpty {
+                  ProgressView()
+                } else {
+                    ForEach(users, id: \.id) { user in
+                        let firstName = user.name.split(separator: " ")[0]
+                        let lastName = user.name.split(separator: " ")[1]
 
-                    NavigationLink {
-                        UserDetailView(user: user)
-                    } label: {
-                        HStack {
-                            UserView(isActive: user.isActive)
-                            
-                            VStack(alignment: .leading) {
-                                Text(firstName)
-                                    .foregroundColor(.primary)
-                                    .font(.headline)
+                        NavigationLink {
+                            UserDetailView(user: user)
+                        } label: {
+                            HStack {
+                                UserView(isActive: user.isActive)
                                 
-                                Text(lastName)
-                                    .foregroundColor(.secondary)
+                                VStack(alignment: .leading) {
+                                    Text(firstName)
+                                        .foregroundColor(.primary)
+                                        .font(.headline)
+                                    
+                                    Text(lastName)
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding(.leading)
                             }
-                            .padding(.leading)
                         }
                     }
                 }
@@ -53,9 +57,7 @@ struct ContentView: View {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
-            
-            print("OUIOUIOUIt")
-            
+                        
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
             
