@@ -13,6 +13,8 @@
 		9FE8FE1028A2DBD3007A027B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9FE8FE0F28A2DBD3007A027B /* Preview Assets.xcassets */; };
 		9FE8FE1728A2DE55007A027B /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8FE1628A2DE55007A027B /* Friend.swift */; };
 		9FE8FE1928A2DE92007A027B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8FE1828A2DE92007A027B /* User.swift */; };
+		9FE8FE1B28A2F597007A027B /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8FE1A28A2F597007A027B /* UserView.swift */; };
+		9FE8FE1D28A3030B007A027B /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE8FE1C28A3030B007A027B /* UserDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		9FE8FE0F28A2DBD3007A027B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9FE8FE1628A2DE55007A027B /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		9FE8FE1828A2DE92007A027B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9FE8FE1A28A2F597007A027B /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		9FE8FE1C28A3030B007A027B /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 			children = (
 				9FE8FE0828A2DBCD007A027B /* FriendfaceApp.swift */,
 				9FE8FE0A28A2DBCD007A027B /* ContentView.swift */,
+				9FE8FE1C28A3030B007A027B /* UserDetailView.swift */,
+				9FE8FE1A28A2F597007A027B /* UserView.swift */,
 				9FE8FE1628A2DE55007A027B /* Friend.swift */,
 				9FE8FE1828A2DE92007A027B /* User.swift */,
 				9FE8FE0C28A2DBD3007A027B /* Assets.xcassets */,
@@ -145,7 +151,9 @@
 			files = (
 				9FE8FE1928A2DE92007A027B /* User.swift in Sources */,
 				9FE8FE1728A2DE55007A027B /* Friend.swift in Sources */,
+				9FE8FE1B28A2F597007A027B /* UserView.swift in Sources */,
 				9FE8FE0B28A2DBCD007A027B /* ContentView.swift in Sources */,
+				9FE8FE1D28A3030B007A027B /* UserDetailView.swift in Sources */,
 				9FE8FE0928A2DBCD007A027B /* FriendfaceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,9 +14,20 @@ struct ContentView: View {
         NavigationView {
             List {
                 ForEach(users, id: \.id) { user in
-                    Section(user.name) {
-                        ForEach(user.friends, id: \.id) { friend in
-                            Text(friend.name)
+                    NavigationLink {
+                        UserDetailView(user: user)
+                    } label: {
+                        HStack {
+                            UserView(isActive: user.isActive)
+                            
+                            VStack(alignment: .leading) {
+                                Text(user.name)
+                                    .foregroundColor(.primary)
+                                    .font(.headline)
+                                
+                                Text(user.email)
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
                 }
