@@ -39,7 +39,9 @@ struct ContentView: View {
             .navigationTitle("Friendface")
         }
         .task {
-            await loadData()
+            if users.isEmpty {
+                await loadData()
+            }
         }
     }
     
@@ -51,6 +53,8 @@ struct ContentView: View {
         
         do {
             let (data, _) = try await URLSession.shared.data(from: url)
+            
+            print("OUIOUIOUIt")
             
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
