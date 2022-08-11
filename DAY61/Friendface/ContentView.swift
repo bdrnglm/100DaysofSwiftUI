@@ -14,7 +14,11 @@ struct ContentView: View {
         NavigationView {
             List {
                 if users.isEmpty {
-                  ProgressView()
+                    Spacer()
+                    
+                    ProgressView()
+                    
+                    Spacer()
                 } else {
                     ForEach(users, id: \.id) { user in
                         let firstName = user.name.split(separator: " ")[0]
@@ -62,7 +66,9 @@ struct ContentView: View {
             decoder.dateDecodingStrategy = .iso8601
             
             if let decodedResponse = try? decoder.decode([User].self, from: data) {
-                users = decodedResponse
+                await MainActor.run {
+                    users = decodedResponse
+                }
             }
         } catch {
             print("Invalid data")
