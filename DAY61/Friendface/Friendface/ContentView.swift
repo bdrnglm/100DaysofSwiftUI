@@ -89,10 +89,11 @@ struct ContentView: View {
                             return cachedFriend
                         }
                         cacheUser.friends = NSSet(array: friendArray)
-                        
                     }
                     
-                    try? moc.save()
+                    if moc.hasChanges {
+                        try? moc.save()
+                    }
                 }
             }
         } catch {
