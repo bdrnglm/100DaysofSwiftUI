@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct UserDetailView: View {
-    let user: User
+    let user: CachedUser
+//    let user: User
     
     let smileys = "😀😃😄😁😆😅😂🤣🥲☺️😊😇🙂🙃😉😌😍🥰😘😗😙😚😋😛😝😜🤪🤨🧐🤓😎🥸🤩🥳😏😒😞😔😟😕🙁☹️😣😖😫😩🥺😢😭😤😠😡🤬🤯😳🥵🥶😶‍🌫️😱😨😰😥😓🤗🤔🤭🤫🤥😶😐😑😬🙄😯😦😧😮😲🥱😴🤤😪😮‍💨😵😵‍💫🤐🥴🤢🤮🤧😷🤒🤕🤑🤠"
 
@@ -25,67 +26,80 @@ struct UserDetailView: View {
                 .foregroundColor(user.isActive ? .green : .secondary)
 
             VStack(alignment: .leading) {
-                Text("Information")
+                Group {
+                    Text("Information")
+                        .font(.title.bold())
+                        .underline()
+                        .padding(.top)
+                    
+                    Text("\(user.wrappedRegistered.formatted())")
+                        .font(.system(size: 12))
+                        .padding(.bottom)
+
+                    HStack {
+                        Text("Age:")
+                            .underline()
+                        Text("\(user.age)")
+                    }
+                    .padding(.bottom, 1)
+
+                    HStack {
+                        Text("Company:")
+                            .underline()
+                        Text("\(user.wrappedCompany)")
+                    }
+                    .padding(.bottom, 1)
+
+                    HStack {
+                        Text("e-Mail:")
+                            .underline()
+                        Text("\(user.wrappedEmail)")
+                    }
+                    .padding(.bottom, 1)
+
+                    HStack(alignment: .top) {
+                        Text("Address:")
+                            .underline()
+                        Text("\(user.wrappedAddress)")
+                    }
+                    .padding(.bottom, 1)
+
+                    HStack(alignment: .top) {
+                        Text("About:")
+                            .underline()
+                        Text("\(user.wrappedAbout)")
+                    }
+                    .padding(.bottom, 1)
+                }
+
+                Text("Tags")
                     .font(.title.bold())
-                    .underline()
                     .padding(.top)
-                
-                Text("\(user.registered.formatted())")
-                    .font(.system(size: 12))
-                    .padding(.bottom)
 
                 HStack {
-                    Text("Age:")
-                        .underline()
-                    Text("\(user.age)")
+                    ForEach(user.tagArray, id: \.self) { tag in
+                        Text(tag)
+                    }
                 }
                 .padding(.bottom, 1)
 
-                HStack {
-                    Text("Company:")
-                        .underline()
-                    Text("\(user.company)")
-                }
-                .padding(.bottom, 1)
-
-                HStack {
-                    Text("e-Mail:")
-                        .underline()
-                    Text("\(user.email)")
-                }
-                .padding(.bottom, 1)
-
-                HStack(alignment: .top) {
-                    Text("Address:")
-                        .underline()
-                    Text("\(user.address)")
-                }
-                .padding(.bottom, 1)
-
-                HStack(alignment: .top) {
-                    Text("About:")
-                        .underline()
-                    Text("\(user.about)")
-                }
-                .padding(.bottom, 1)
-
-                Text("Friends")
+                Text("Friends (\(user.friendArray.count))")
                     .font(.title.bold())
                     .padding(.top)
               
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        ForEach(user.friends) { friend in
-                            let firstName = friend.name.split(separator: " ")[0]
-                            let lastName = friend.name.split(separator: " ")[1]
+                        ForEach(user.friendArray) { friend in
+                            let firstName = friend.wrappedName.components(separatedBy: " ")[0]
+                            let lastName = friend.wrappedName.components(separatedBy: " ")[1]
 
                             UserView(isActive: false)
-                            
+
                             VStack(alignment: .leading) {
                                 Text(firstName)
                                     .foregroundColor(.primary)
                                     .font(.headline)
-                                
+
                                 Text(lastName)
                                     .foregroundColor(.secondary)
                             }
@@ -104,15 +118,15 @@ struct UserDetailView: View {
             Spacer()
         }
         .padding()
-        .navigationTitle(user.name)
+        .navigationTitle(user.wrappedName)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
 
-struct UserDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            UserDetailView(user: User(id: UUID(), isActive: true, name: "Badran GUELLIM", age: 32, company: "None", email: "badrane.guellim@live.fr", address: "15 avenue Dolce Farniente", about: "Et ouais fraise", registered: Date.now, tags: ["bg", "oui"], friends: [Friend(id: UUID(), name: "Vas Y"), Friend(id: UUID(), name: "Et Oui")]))
-        }
-    }
-}
+//struct UserDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationView {
+//            UserDetailView(user: User(id: UUID(), isActive: true, name: "Badran GUELLIM", age: 32, company: "None", email: "badrane.guellim@live.fr", address: "15 avenue Dolce Farniente", about: "Et ouais fraise", registered: Date.now, tags: ["bg", "oui"], friends: [Friend(id: UUID(), name: "Vas Y"), Friend(id: UUID(), name: "Et Oui")]))
+//        }
+//    }
+//}

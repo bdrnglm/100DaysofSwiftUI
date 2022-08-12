@@ -62,7 +62,7 @@ extension CachedUser {
     
     public var friendArray: [CachedFriend] {
         let set = friends as? Set<CachedFriend> ?? []
-        
+
         return set.sorted {
             $0.wrappedName < $1.wrappedName
         }
