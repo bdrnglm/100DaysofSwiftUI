@@ -13,7 +13,7 @@ struct User: Identifiable, Comparable {
     let lastName: String
     
     static func < (lhs: User, rhs: User) -> Bool {
-        lhs.firstName < rhs.lastName
+        lhs.firstName < rhs.firstName
     }
 }
 
