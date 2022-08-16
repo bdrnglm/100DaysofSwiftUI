@@ -14,8 +14,12 @@ extension ContentView {
         @Published var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 50, longitude: 0), span: MKCoordinateSpan(latitudeDelta: 25, longitudeDelta: 25))
         @Published private(set) var locations: [Location]
         @Published var selectedPlace: Location?
-        @Published var isUnlocked = true
+        @Published var isUnlocked = false
         
+        @Published var alertTitle = ""
+        @Published var alertMessage = ""
+        @Published var showingAlert = false
+
         let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedPlaces")
 
         init() {
@@ -64,11 +68,17 @@ extension ContentView {
                             self.isUnlocked = true
                         }
                     } else {
-                        // error
+                        Task { @MainActor in
+                            self.alertTitle = "Athentication failed"
+                            self.alertMessage = "Try again"
+                            self.showingAlert = true
+                        }
                     }
                 }
             } else {
-                // no biometrics
+                self.alertTitle = "Unable to unlock places"
+                self.alertMessage = "Your device must be compatible with TouchID or FaceID"
+                self.showingAlert = true
             }
         }
     }

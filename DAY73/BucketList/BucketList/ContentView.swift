@@ -66,6 +66,11 @@ struct ContentView: View {
                 .clipShape(Capsule())
             }
         }
+        .alert(viewModel.alertTitle, isPresented: $viewModel.showingAlert) {
+            Button("OK") { }
+        } message: {
+            Text(viewModel.alertMessage)
+        }
         .sheet(item: $viewModel.selectedPlace) { place in
             EditView(location: place) {
                 viewModel.update(location: $0)
