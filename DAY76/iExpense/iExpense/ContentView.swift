@@ -54,7 +54,7 @@ struct ContentView: View {
                                         .amountColor(amount: item.amount)
                                 }
                                 .accessibilityElement()
-                                .accessibilityLabel("\(item.name), \(item.amount)")
+                                .accessibilityLabel("\(item.name), \(item.amount.formatted(currency(code: "USD")))")
                                 .accessibilityHint(item.type)
                             }
                         }
@@ -77,7 +77,7 @@ struct ContentView: View {
                                         .amountColor(amount: item.amount)
                                 }
                                 .accessibilityElement()
-                                .accessibilityLabel("\(item.name), \(item.amount)")
+                                .accessibilityLabel("\(item.name), \(item.amount.formatted(currency(code: "USD")))")
                                 .accessibilityHint(item.type)
                             }
                         }
