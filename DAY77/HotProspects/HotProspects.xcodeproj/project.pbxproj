@@ -11,6 +11,7 @@
 		9F787FE828AD7E0700018AA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F787FE728AD7E0700018AA3 /* ContentView.swift */; };
 		9F787FEA28AD7E0B00018AA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F787FE928AD7E0B00018AA3 /* Assets.xcassets */; };
 		9F787FED28AD7E0B00018AA3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F787FEC28AD7E0B00018AA3 /* Preview Assets.xcassets */; };
+		9FD276C028AE5EF8000D949D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD276BF28AE5EF7000D949D /* ImagePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		9F787FE728AD7E0700018AA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9F787FE928AD7E0B00018AA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F787FEC28AD7E0B00018AA3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9FD276BF28AE5EF7000D949D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				9F787FE528AD7E0700018AA3 /* HotProspectsApp.swift */,
 				9F787FE728AD7E0700018AA3 /* ContentView.swift */,
+				9FD276BF28AE5EF7000D949D /* ImagePicker.swift */,
 				9F787FE928AD7E0B00018AA3 /* Assets.xcassets */,
 				9F787FEB28AD7E0B00018AA3 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FD276C028AE5EF8000D949D /* ImagePicker.swift in Sources */,
 				9F787FE828AD7E0700018AA3 /* ContentView.swift in Sources */,
 				9F787FE628AD7E0700018AA3 /* HotProspectsApp.swift in Sources */,
 			);
