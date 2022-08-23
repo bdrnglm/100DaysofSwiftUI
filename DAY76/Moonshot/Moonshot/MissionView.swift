@@ -16,10 +16,13 @@ struct MissionView: View {
             ScrollView {
                 VStack {
                     Image(mission.image)
+//                    Image(decorative: mission.image)
                         .resizable()
                         .scaledToFit()
                         .frame(maxWidth: geometry.size.width * 0.6)
                         .padding(.top)
+                        .accessibilityLabel(mission.badge)
+//                        .accessibilityLabel("The mission badge for \(mission.displayName)")
                     
                     Text("Launching Date: \(mission.formattedLaunchDate)")
                         .padding(.top)
