@@ -11,9 +11,9 @@
 		9F1ECF25288463E9007A8829 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1ECF24288463E9007A8829 /* ContentView.swift */; };
 		9F1ECF27288463F0007A8829 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1ECF26288463F0007A8829 /* Assets.xcassets */; };
 		9F1ECF2A288463F0007A8829 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F1ECF29288463F0007A8829 /* Preview Assets.xcassets */; };
-		9F44D15728AD55B8000F181D /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F44D15628AD55B8000F181D /* missions.json */; };
 		9F5F60E92885FDD0009A850D /* CrewScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F60E82885FDD0009A850D /* CrewScrollView.swift */; };
 		9F5F60EB28860EBE009A850D /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5F60EA28860EBE009A850D /* CustomDivider.swift */; };
+		9F79F02C2885847B00824AB3 /* missions.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F79F02A2885847A00824AB3 /* missions.json */; };
 		9F79F02D2885847B00824AB3 /* astronauts.json in Resources */ = {isa = PBXBuildFile; fileRef = 9F79F02B2885847B00824AB3 /* astronauts.json */; };
 		9F79F02F288584CD00824AB3 /* Astronaut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F79F02E288584CD00824AB3 /* Astronaut.swift */; };
 		9F79F0312885856400824AB3 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F79F0302885856400824AB3 /* Bundle-Decodable.swift */; };
@@ -31,9 +31,9 @@
 		9F1ECF24288463E9007A8829 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9F1ECF26288463F0007A8829 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F1ECF29288463F0007A8829 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		9F44D15628AD55B8000F181D /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = missions.json; path = ../../../../../Downloads/Accessibility/project8/Moonshot/missions.json; sourceTree = "<group>"; };
 		9F5F60E82885FDD0009A850D /* CrewScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewScrollView.swift; sourceTree = "<group>"; };
 		9F5F60EA28860EBE009A850D /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
+		9F79F02A2885847A00824AB3 /* missions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = missions.json; sourceTree = "<group>"; };
 		9F79F02B2885847B00824AB3 /* astronauts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronauts.json; sourceTree = "<group>"; };
 		9F79F02E288584CD00824AB3 /* Astronaut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Astronaut.swift; sourceTree = "<group>"; };
 		9F79F0302885856400824AB3 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 				9F79F0342885A0DD00824AB3 /* Color-Theme.swift */,
 				9F79F0302885856400824AB3 /* Bundle-Decodable.swift */,
 				9F79F02B2885847B00824AB3 /* astronauts.json */,
-				9F44D15628AD55B8000F181D /* missions.json */,
+				9F79F02A2885847A00824AB3 /* missions.json */,
 				9F1ECF26288463F0007A8829 /* Assets.xcassets */,
 				9F1ECF28288463F0007A8829 /* Preview Content */,
 			);
@@ -162,7 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1ECF2A288463F0007A8829 /* Preview Assets.xcassets in Resources */,
-				9F44D15728AD55B8000F181D /* missions.json in Resources */,
+				9F79F02C2885847B00824AB3 /* missions.json in Resources */,
 				9F1ECF27288463F0007A8829 /* Assets.xcassets in Resources */,
 				9F79F02D2885847B00824AB3 /* astronauts.json in Resources */,
 			);
