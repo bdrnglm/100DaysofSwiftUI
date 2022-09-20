@@ -12,7 +12,7 @@ Done | Work in progress | Yet to come
 
 Projects / Topics | GIF | Days
 :--- | :---: | :---
-✅ [Playgrounds](DAY15)<br /> <sub> Swift language concepts </sub> | 👻 | [DAY01](DAY01), [DAY02](DAY02), [DAY03](DAY03), [DAY04](DAY04), [DAY05](DAY05), [DAY06](DAY06), [DAY07](DAY07), [DAY08](DAY08), [DAY09](DAY09), [DAY10](DAY10), [DAY11](DAY11), [DAY12](DAY12), [DAY13](DAY13), [DAY14](DAY14), [DAY15](DAY15)
+✅ [Playgrounds](DAY15)<br /> <sub> variables, constants, strings, numbers, booleans, string interpolation, arrays, dictionaries, sets, enums, type annotations, if, switch, ternary operator, loops, functions, parameters, and return values, default values, throwing functions, closures, passing functions into functions, structs, computed properties, property observers, access control, static properties, methods, classes, inheritance, protocols, extensions, optionals, nil coalescing </sub> | 👻 | [DAY01](DAY01), [DAY02](DAY02), [DAY03](DAY03), [DAY04](DAY04), [DAY05](DAY05), [DAY06](DAY06), [DAY07](DAY07), [DAY08](DAY08), [DAY09](DAY09), [DAY10](DAY10), [DAY11](DAY11), [DAY12](DAY12), [DAY13](DAY13), [DAY14](DAY14), [DAY15](DAY15)
 ✅ [WeSplit](DAY24)<br /> <sub> Form, Section, NavigationView, @State property wrapper, TextField, Picker, ForEach </sub> | 📱 | [DAY16](DAY16), [DAY17](DAY17), [DAY18](DAY18), [DAY24](DAY24)
 🚧 [UnitConverter](DAY19)<br /> | 📱 | [DAY19](DAY19)
 ✅ [GuessTheFlag](DAY75/GuessTheFlag)<br /> <sub> VStack, Image, Alert </sub> | 📱 | [DAY20](DAY20), [DAY21](DAY21), [DAY22](DAY22), [DAY24](DAY24), [DAY26](DAY26), [DAY34](DAY34), [DAY75](DAY75)
